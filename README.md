@@ -1,6 +1,8 @@
 # features
 
-A Flutter package to help with scoping features for a project;
+A Flutter package to help with scoping features for a project.
+
+Online Demo: https://rodydavis.github.io/features/
 
 ## Getting Started
 
