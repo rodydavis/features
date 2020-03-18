@@ -1,6 +1,6 @@
 name: features
 description: A Flutter package to help manage features enabled/disabled for a user
-version: 1.0.0+1
+version: 1.0.0+2
 homepage: https://github.com/rodydavis/features
 
 environment:
