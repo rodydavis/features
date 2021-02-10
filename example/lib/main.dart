@@ -20,9 +20,9 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key? key, this.title}) : super(key: key);
 
-  final String title;
+  final String? title;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -32,7 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   final _counterFeature = Feature('counter'); //..defaultValue(false)
 
-  SharedPreferences _prefs;
+  late SharedPreferences _prefs;
 
   @override
   void initState() {
@@ -45,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _restoreFromCache() {
     final _savedCache = _prefs.getString('cache');
-    final Map<String, dynamic> _cache = json.decode(_savedCache);
+    final Map<String, dynamic> _cache = json.decode(_savedCache ?? '{}');
     _counterFeature.enabled = _cache[_counterFeature.key];
   }
 
@@ -65,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.title)),
+      appBar: AppBar(title: Text(widget.title ?? '')),
       body: Center(
         child: Container(
           width: 250,

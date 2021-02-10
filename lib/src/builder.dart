@@ -4,30 +4,26 @@ import 'feature.dart';
 import 'provider.dart';
 
 class FeatureBuilder extends StatelessWidget {
-  final String featureKey;
-  final Feature feature;
-  final Widget child;
-  final Widget Function(BuildContext, bool, Widget) builder;
+  final String? featureKey;
+  final Feature? feature;
+  final Widget? child;
+  final Widget Function(BuildContext, bool, Widget?) builder;
   final bool hideOnInactive;
 
   const FeatureBuilder({
-    Key key,
-    @required this.builder,
+    Key? key,
+    required this.builder,
     this.featureKey,
     this.child,
     this.feature,
     this.hideOnInactive = false,
-  })  : assert(feature != null || feature != null),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final _features = Features.of(context);
     final _feature = feature ??
-        _features.items.firstWhere(
-          (element) => element.key == featureKey,
-          orElse: () => null,
-        );
+        _features?.items.firstWhere((element) => element.key == featureKey);
     if (_feature == null) {
       return Visibility(
         visible: hideOnInactive ? false : true,
